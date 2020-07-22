@@ -1,3 +1,13 @@
+/***********************************************************************
+ Class: CMSC203 CRN 46667
+ Program: Assignment # 4
+ Instructor: Dr.Grinberg
+ Description: JUnit test for ManagementCompany.java
+ Due: 07/26/2020
+ I pledge that I have completed the programming assignment independently.
+ I have not copied the code from a student or any source.
+ Anthony Liu
+************************************************************************/
 import static org.junit.Assert.*;
 
 import org.junit.After;

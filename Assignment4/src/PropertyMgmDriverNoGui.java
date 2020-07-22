@@ -16,7 +16,7 @@ public class PropertyMgmDriverNoGui {
 		Property p5 = new Property ("Lakewood", "Rockville", 3000, "Alex Tan",4,4,11,11);
 		
 		//Create management company object
-		ManagementCompany m = new ManagementCompany("Alliance", "1235",6,0,0,10,10);
+		ManagementCompany m = new ManagementCompany("Alliance", "1235",6);  //,0,0,10,10);
 		
 		//Add the properties to the list of properties of the management company
 		System.out.println(m.addProperty(p1));   //Should add the property and display the index where the property is added to the array
@@ -29,7 +29,7 @@ public class PropertyMgmDriverNoGui {
 		System.out.println(m.addProperty(p5));   //it should display -4 to indicate the property is not added to the array due to size
 		
 		//Display the information of the property that has the maximum rent amount
-		System.out.println("The property with the highest rent:\n" + m.displayPropertyAtIndex(m.maxRentPropertyIndex())); 
+		System.out.println("The property with the highest rent:\n" + m.maxRentProp()); //displayPropertyAtIndex(m.maxPropertyRentIndex())); 
 	 		
 		//Display the total rent of the properties within the management company
 		System.out.println("\nTotal Rent of the properties: "+m.totalRent()+ "\n");  

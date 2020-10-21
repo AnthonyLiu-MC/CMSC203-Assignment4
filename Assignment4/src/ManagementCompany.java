@@ -85,10 +85,10 @@ public class ManagementCompany {
 	 * @param name   Management Company Name
 	 * @param taxID  Tax ID
 	 * @param mgmFee Management Fee Percentage
-	 * @param x  x location of upper left corner of company plot
-	 * @param y  y location of upper left corner of company plot
-	 * @param width width of company plot
-	 * @param depth depth of company plot
+	 * @param x      x location of upper left corner of company plot
+	 * @param y      y location of upper left corner of company plot
+	 * @param width  width of company plot
+	 * @param depth  depth of company plot
 	 */
 	public ManagementCompany(String name, String taxID, double mgmFee, int x, int y, int width, int depth) {
 		this.name = name;
@@ -126,26 +126,28 @@ public class ManagementCompany {
 
 		Property property = new Property(p);
 
-		if (!plot.encompasses(property.getPlot())) { //Checks if property is within plot 
-			return -3;
-		}
-		;
-
-		int i;
-		for (i = 0; i < properties.length; i++) {
-			if (properties[i] != null) {
-				if (properties[i].getPlot().overlaps(property.getPlot())) { //Checks is property overlaps another property
-					return -4;
-				}
-				if (i == properties.length - 1) { //Checks if property if full 
-					return -1;
-				}
-			}
-			if (properties[i] == null) {
-				properties[i] = property;
-				return i;
+		if (property != null) {
+			if (!plot.encompasses(property.getPlot())) { // Checks if property is within plot
+				return -3;
 			}
 
+			int i;
+			for (i = 0; i < properties.length; i++) {
+				if (properties[i] != null) {
+					if (properties[i].getPlot().overlaps(property.getPlot())) { // Checks is property overlaps another
+																				// property
+						return -4;
+					}
+					if (i == getMAX_PROPERTY() - 1) { // Checks if property if full
+						return -1;
+					}
+				}
+				if (properties[i] == null) {
+					properties[i] = property;
+					return i;
+				}
+
+			}
 		}
 
 		return -2;
@@ -168,27 +170,29 @@ public class ManagementCompany {
 	public int addProperty(String name, String city, double rent, String ownerName) {
 
 		Property property = new Property(name, city, rent, ownerName);
-		
-		if (!plot.encompasses(property.getPlot())) { //Checks if property is within plot 
-			return -3;
-		}
-		;
 
-		int i;
-		for (i = 0; i < properties.length; i++) {
-			if (properties[i] != null) {
-				if (properties[i].getPlot().overlaps(property.getPlot())) { //Checks is property overlaps another property
-					return -4;
-				}
-				if (i == properties.length - 1) { //Checks if property if full 
-					return -1;
-				}
-			}
-			if (properties[i] == null) {
-				properties[i] = property;
-				return i;
+		if (property != null) {
+			if (!plot.encompasses(property.getPlot())) { // Checks if property is within plot
+				return -3;
 			}
 
+			int i;
+			for (i = 0; i < properties.length; i++) {
+				if (properties[i] != null) {
+					if (properties[i].getPlot().overlaps(property.getPlot())) { // Checks is property overlaps another
+																				// property
+						return -4;
+					}
+					if (i == getMAX_PROPERTY() - 1) { // Checks if property if full
+						return -1;
+					}
+				}
+				if (properties[i] == null) {
+					properties[i] = property;
+					return i;
+				}
+
+			}
 		}
 
 		return -2;
@@ -202,47 +206,49 @@ public class ManagementCompany {
 	 * of properties in array otherwise return the index of the array where the
 	 * property was added.
 	 * 
-	 * @param name  Property Name
-	 * @param city  Location of property
-	 * @param rent  Monthly rent
-	 * @param owner Owner of property
-	 * @param x     x location of upper left corner of property's plot
-	 * @param y     y location of upper left corner of property's plot
-	 * @param width width of the property's plot
-	 * @param depth depth of the property's plot
+	 * @param name      Property Name
+	 * @param city      Location of property
+	 * @param rent      Monthly rent
+	 * @param ownerName Owner of property
+	 * @param x         x location of upper left corner of property's plot
+	 * @param y         y location of upper left corner of property's plot
+	 * @param width     width of the property's plot
+	 * @param depth     depth of the property's plot
 	 * @return Returns either -1 if the array is full, -2 if property is null, -3 if
 	 *         the plot is not contained by the MgmtCo plot, -4 of the plot overlaps
 	 *         any other property, or the index in the array where the property was
 	 *         added successfully.
 	 */
-	public int addProperty(String name, String city, double rent, String ownerName, int x, int y, int width, int depth) {
+	public int addProperty(String name, String city, double rent, String ownerName, int x, int y, int width,
+			int depth) {
 
 		Property property = new Property(name, city, rent, ownerName, x, y, width, depth);
-		
-		if (!plot.encompasses(property.getPlot())) { //Checks if property is within plot 
-			return -3;
-		}
-		;
 
-		int i;
-		for (i = 0; i < properties.length; i++) {
-			if (properties[i] != null) {
-				if (properties[i].getPlot().overlaps(property.getPlot())) { //Checks is property overlaps another property
-					return -4;
-				}
-				if (i == properties.length - 1) { //Checks if property if full 
-					return -1;
-				}
-			}
-			if (properties[i] == null) {
-				properties[i] = property;
-				return i;
+		if (property != null) {
+			if (!plot.encompasses(property.getPlot())) { // Checks if property is within plot
+				return -3;
 			}
 
+			int i;
+			for (i = 0; i < properties.length; i++) {
+				if (properties[i] != null) {
+					if (properties[i].getPlot().overlaps(property.getPlot())) { // Checks is property overlaps another
+																				// property
+						return -4;
+					}
+					if (i == getMAX_PROPERTY() - 1) { // Checks if property if full
+						return -1;
+					}
+				}
+				if (properties[i] == null) {
+					properties[i] = property;
+					return i;
+				}
+
+			}
 		}
 
 		return -2;
-
 	}
 
 	/**
@@ -279,7 +285,7 @@ public class ManagementCompany {
 
 		for (int i = 0; i < properties.length; i++) {
 			if (properties[i] != null) {
-				totalRent += properties[i].getRentAmount();	//Adds property rent to total property rent 
+				totalRent += properties[i].getRentAmount(); // Adds property rent to total property rent
 			}
 		}
 
@@ -299,8 +305,8 @@ public class ManagementCompany {
 
 		for (int i = 0; i < properties.length; i++) {
 			if (properties[i] != null) {
-				//Checks if the property rent is greater than the current greatest rent
-				if (properties[i].getRentAmount() > properties[maxRentProperty].getRentAmount()) { 
+				// Checks if the property rent is greater than the current greatest rent
+				if (properties[i].getRentAmount() > properties[maxRentProperty].getRentAmount()) {
 					maxRentProperty = i;
 				}
 			}
@@ -313,10 +319,10 @@ public class ManagementCompany {
 	 * This method finds a property within the properties array that has the maximum
 	 * rent amount and returns the rent amount.
 	 * 
-	 * @return Highest rent 
+	 * @return Highest rent
 	 */
 	public double maxRentProp() {
-		
+
 		double maxRent = properties[maxRentPropertyIndex()].getRentAmount();
 
 		return maxRent;
@@ -423,24 +429,16 @@ public class ManagementCompany {
 	 * 
 	 * @return information of ALL the properties within this management company by
 	 *         accessing the "Properties" array. The format is as following example:
-	 *         
+	 * 
 	 *         List of the properties for Alliance, taxID: 1235
-	 *         ______________________________________________________ 
-	 *          Property Name: Belmar
-	 *          Located in Silver Spring 
-	 *          Belonging to: John Smith 
-	 *          Rent Amount: 1200.0
-	 *          Property Name: Camden Lakeway 
-	 *          Located in Rockville 
-	 *          Belonging to: Ann Taylor
-	 *          Rent Amount: 2450.0
-	 *          Property Name: Hamptons
-	 *          Located in Rockville
-	 *          Belonging to: Rick Steves 
-	 *          Rent Amount: 1250.0
-	 *         ______________________________________________________ 
-	 *         total management Fee: 294.0
-	 *         
+	 *         ______________________________________________________ Property Name:
+	 *         Belmar Located in Silver Spring Belonging to: John Smith Rent Amount:
+	 *         1200.0 Property Name: Camden Lakeway Located in Rockville Belonging
+	 *         to: Ann Taylor Rent Amount: 2450.0 Property Name: Hamptons Located in
+	 *         Rockville Belonging to: Rick Steves Rent Amount: 1250.0
+	 *         ______________________________________________________ total
+	 *         management Fee: 294.0
+	 * 
 	 * 
 	 */
 	public String toString() {
@@ -449,11 +447,11 @@ public class ManagementCompany {
 				+ "\n ______________________________________________________\n";
 
 		for (int i = 0; i < properties.length; i++) {
-			if (properties[i] != null) {		//Adds property to string if not null 
+			if (properties[i] != null) { // Adds property to string if not null
 				allProperties += properties[i].toString();
 			}
 		}
-		double mgmFee = totalRent() * (getMgmfee() / 100); //Calculate management fee 
+		double mgmFee = totalRent() * (getMgmfee() / 100); // Calculate management fee
 
 		allProperties += " ______________________________________________________\n total management Fee: " + mgmFee;
 

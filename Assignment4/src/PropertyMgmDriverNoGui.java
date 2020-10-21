@@ -14,7 +14,7 @@ public class PropertyMgmDriverNoGui {
 		Property p3 = new Property ("Hamptons", "Rockville", 1250, "Rick Steves",2,2,1,1);
 		Property p4 = new Property ("Mallory Square", "Wheaton", 1000, "Abbey McDonald",3,3,1,1);
 		Property p5 = new Property ("Lakewood", "Rockville", 3000, "Alex Tan",4,4,11,11);
-		
+
 		//Create management company object
 		ManagementCompany m = new ManagementCompany("Alliance", "1235",6);  //,0,0,10,10);
 		
@@ -27,7 +27,6 @@ public class PropertyMgmDriverNoGui {
 		p5 = new Property ("Lakewood", "Rockville", 3000, "Alex Tan",4,4,1,1);
 		System.out.println(m.addProperty(p5));
 		System.out.println(m.addProperty(p5));   //it should display -4 to indicate the property is not added to the array due to size
-		
 		//Display the information of the property that has the maximum rent amount
 		System.out.println("The property with the highest rent:\n" + m.maxRentProp()); //displayPropertyAtIndex(m.maxPropertyRentIndex())); 
 	 		
